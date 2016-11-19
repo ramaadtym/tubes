@@ -44,3 +44,21 @@
 	"parent.h"
 	"stdafx.h"
 
+1479568988 source:f:\tugas\tubes\asdganteng\child.cpp
+	"child.h"
+
+1479568988 f:\tugas\tubes\asdganteng\child.h
+	"stdafx.h"
+
+1479568988 f:\tugas\tubes\asdganteng\stdafx.h
+	<stdlib.h>
+	<iostream>
+
+1479568988 source:f:\tugas\tubes\asdganteng\parent.cpp
+	"parent.h"
+	"stdafx.h"
+
+1479568988 f:\tugas\tubes\asdganteng\parent.h
+	"child.h"
+	"stdafx.h"
+

@@ -23,9 +23,6 @@ int main()
     x.ID = 20;
     insertAscendingID(L,alokasi(x));
     x.ID = 25;
-    insertAscendingID(L,alokasi(x));
-    x.ID = 21;
-    insertAscendingID(L,alokasi(x));
     cout << "printparent" << endl;
     printParent(L);
     SortingParent(L);
