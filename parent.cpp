@@ -256,9 +256,8 @@ void printParent(ListP L)
         while(P != NULL)
         {
             infotypeP x = P->info;
-               cout << "===ID : " << x.ID << endl;
-         cout << "\tNama : " << x.nama << endl;
-            cout << "\tLain-Lain : " << x.lainlain << endl;
+            cout << "===ID Gerbang : " << x.ID << endl;
+            cout << "\tAlamat Gerbang : " << x.nama << endl;
             P = P->next;
         }
         cout << endl;
@@ -289,31 +288,50 @@ void printAll(ListP L)
 void SortingParent(ListP &L)
 {
     addressP first = L.first;
-    int minimum;
+    infotypeP minimum;
     while(first != L.last)
     {
+
         addressP Q = first;
-        minimum = Q->info.ID;
+        minimum.ID = Q->info.ID;
+        minimum.nama = Q->info.nama;
         while(Q != NULL) //cari value minimum
         {
-            if (Q->info.ID < minimum)
-                minimum = Q->info.ID;
+            if (Q->info.nama <= minimum.nama)
+            {
+                minimum.ID = Q->info.ID;
+                minimum.nama = Q->info.nama;
+            }
             Q = Q->next;
         }
-        addressP P;
-        infotypeP cari;
-        cari.ID = minimum;
-        if (findElm(L,cari) != L.first){
-        deletebySearch(L,cari,P);
-        if (first == L.first)
-            insertFirst(L,P);
+        /*
+        system("cls");
+        cout << "minimum ID = " << minimum.ID << endl;
+        cout << "first = " << first->info.ID << endl;
+        printParent(L);
+        system("pause");*/
+        addressP P,Z;
+        Z = first->prev;
+        if (findElm(L,minimum) != L.first)
+        {
+            deletebySearch(L,minimum,P);
+            if (first == L.first)
+            {
+                insertFirst(L,P);
+                first = P->next;
+            }
+            else
+            {
+                insertAfter(L,Z,P);
+                first = P->next;
+            }
+        }
         else
         {
-        insertAfter(L,first->prev,P);
+            first = first->next;
         }
-        }
-        if (first->next != NULL)
-        first = first->next;
+        minimum.ID = NULL;
+        minimum.nama = "";
     }
 
 }

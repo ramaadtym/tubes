@@ -54,11 +54,16 @@
 	<stdlib.h>
 	<iostream>
 
-1479568988 source:f:\tugas\tubes\asdganteng\parent.cpp
+1479571485 source:f:\tugas\tubes\asdganteng\parent.cpp
 	"parent.h"
 	"stdafx.h"
 
 1479568988 f:\tugas\tubes\asdganteng\parent.h
 	"child.h"
 	"stdafx.h"
+
+1479571594 source:f:\tugas\tubes\asdganteng\main.cpp
+	<iostream>
+	<stdlib.h>
+	"parent.h"
 
