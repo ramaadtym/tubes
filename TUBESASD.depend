@@ -1,0 +1,46 @@
+# depslib dependency file v1.0
+1478881588 source:f:\tugas\tubes\tubesasd\child.cpp
+	"child.h"
+
+1478881357 f:\tugas\tubes\tubesasd\child.h
+	"stdafx.h"
+
+1478881084 f:\tugas\tubes\tubesasd\stdafx.h
+	<stdlib.h>
+	<iostream>
+
+1478881507 source:f:\tugas\tubes\tubesasd\main.cpp
+	<iostream>
+	"parent.h"
+
+1478881392 f:\tugas\tubes\tubesasd\parent.h
+	"child.h"
+	"stdafx.h"
+
+1478881484 source:f:\tugas\tubes\tubesasd\parent.cpp
+	"parent.h"
+	"stdafx.h"
+
+1479562370 source:f:\tugas\tubes\tubes asd\child.cpp
+	"child.h"
+
+1479562376 f:\tugas\tubes\tubes asd\child.h
+	"stdafx.h"
+
+1478881084 f:\tugas\tubes\tubes asd\stdafx.h
+	<stdlib.h>
+	<iostream>
+
+1479567919 source:f:\tugas\tubes\tubes asd\main.cpp
+	<iostream>
+	<stdlib.h>
+	"parent.h"
+
+1479566212 f:\tugas\tubes\tubes asd\parent.h
+	"child.h"
+	"stdafx.h"
+
+1479567994 source:f:\tugas\tubes\tubes asd\parent.cpp
+	"parent.h"
+	"stdafx.h"
+
