@@ -1,5 +1,12 @@
 #ifndef CHILD_H_INCLUDED
 #define CHILD_H_INCLUDED
+#include <iostream>
+#define Nil NULL
+#define first(L) L.first
+#define next(P) P->next
+#define info(P) P->info
+
+
 
 
 #include "stdafx.h"
@@ -8,7 +15,7 @@
 using namespace std;
 struct infotypec{
     int ID;
-    char nama,lainlain;
+    string nama,lainlain;
 };
 typedef struct Child *addressc;
 struct Child{

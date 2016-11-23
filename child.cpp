@@ -16,7 +16,9 @@ addressc alokasi(infotypec x){
 //PUT YOUR CODE HERE//
     addressc C;
     C = new Child;
-    info(C) = x;
+    info(C).ID = x.ID;
+    info(C).nama = x.nama;
+    info(C).lainlain = x.lainlain;
     next(C) = Nil;
     return C;
 }
@@ -37,7 +39,7 @@ void insertFirst(Listc &L, addressc P){
 
 //PUT YOUR CODE HERE//
     if(first(L) == Nil){
-        P = first(L);
+        first(L) = P;
     }
     else{
         next(P) = first(L);
@@ -114,10 +116,31 @@ void deleteLast(Listc &L, addressc &P){
 }
 void deletebySearch(Listc &L,infotypec x){
 /**
-    NIM :
+    NIM : 1301150034
 **/
 
 //PUT YOUR CODE HERE//
+addressc Prec,P;
+ Prec = first(L);
+     P = findElm(L,x);
+     if (P != Nil)
+     {
+         if (Prec == P)
+         {
+             deleteFirst(L,P);
+         }
+         else
+         {
+
+             while(next(Prec)!= P && next(Prec) != NULL)
+                 Prec = next(Prec);
+
+             if (next(Prec) == NULL)
+             {
+                 deleteLast(L,Prec);
+             }
+         }
+     }
 }
 
 addressc findElm(Listc L, infotypec x){
@@ -126,11 +149,11 @@ addressc findElm(Listc L, infotypec x){
 **/
 
 //PUT YOUR CODE HERE//
-    address C;
+    addressc C;
     if(first(L) != Nil){
         C = first(L);
         while(C != Nil){
-            if(info(C) == x){
+            if(info(C).ID == x.ID){
                 return C;
             }
             C = next(C);
@@ -145,15 +168,18 @@ void printChild(Listc L){
 **/
 
 //PUT YOUR CODE HERE//
-    address C
+    addressc C;
     C = first(L);
-    if(first(L) != Nil){
+    if(first(L) == Nil){
+        cout<<"KOSONG";
+    }
+    else{
         while(C!=Nil){
-            infotypec c = info(C)
+            infotypec c = info(C);
             cout << "ID : " << c.ID << endl;
             cout << "Nama : " << c.nama << endl;
             cout << "Lain-Lain : " << c.lainlain << endl;
-
+            C = next(C);
         }
     }
 }

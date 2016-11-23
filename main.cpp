@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
 #include "parent.h"
+#include "child.h"
 using namespace std;
 
 
@@ -62,5 +63,17 @@ int main()
     cout << "sorted by name" << endl;
     SortingParent(L);
     printParent(L);
+
+    Listc N;
+    createList(N);
+    infotypec y;
+
+    y.ID = 2;
+    y.nama = "ahmad";
+    y.lainlain = "pp";
+    insertFirst(N,alokasi(y));
+
+    printChild(N);
+
     return 0;
 }
