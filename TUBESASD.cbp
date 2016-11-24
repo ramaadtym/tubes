@@ -37,6 +37,8 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="parent.cpp" />
 		<Unit filename="parent.h" />
+		<Unit filename="parkir.cpp" />
+		<Unit filename="parkir.h" />
 		<Unit filename="stdafx.h" />
 		<Extensions>
 			<code_completion />

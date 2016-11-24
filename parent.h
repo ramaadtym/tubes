@@ -4,14 +4,17 @@
 #include "stdafx.h"
 
 #define nextparent(P) (P) = (P)->next
+#define child(P) (P)->child
 using namespace std;
-struct infotypeP{
+struct infotypeP
+{
     int ID;
     string nama;
-    string lainlain;
+    string alamat;
 };
 typedef struct Parent *addressP;
-struct Parent{
+struct Parent
+{
 
     infotypeP info;
     Listc child;
@@ -20,7 +23,8 @@ struct Parent{
 
 };
 
-struct ListP{
+struct ListP
+{
     addressP first;
     addressP last;
 };
@@ -32,7 +36,8 @@ void dealokasi(addressP &P);
 void insertFirst(ListP &L, addressP P);
 void insertAfter(ListP &L,addressP Prec, addressP P);
 void insertLast(ListP &L, addressP P);
-void insertAscendingID(ListP &L, addressP P);
+bool insertAscendingID(ListP &L, addressP P);
+void insertChild(ListP L);
 
 void deleteFirst(ListP &L, addressP &P);
 void deleteLast(ListP &L, addressP &P);
@@ -43,5 +48,11 @@ void printParent(ListP L);
 void printAll(ListP L);
 bool isEmpty(ListP L);
 void SortingParent(ListP &L);
-
+void ReportingLantai(ListP L);
+void inputParent(ListP &L);
+addressc CariKendaraan(ListP L);
+addressc cariNopol(ListP L,string nopol);
+void reporting(ListP L);
+void ubahdata(ListP &L);
+infotypeP createDML(int ID, string nama, string alamat);
 #endif // PARENT_H_INCLUDED

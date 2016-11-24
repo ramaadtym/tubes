@@ -26,7 +26,8 @@ addressP alokasi(infotypeP x)
     addressP P = new Parent;
     P->info.ID = x.ID;
     P->info.nama = x.nama;
-    P->info.lainlain = x.lainlain;
+    P->info.alamat = x.alamat;
+    createList(P->child);
     return P;
 
 }
@@ -102,8 +103,9 @@ void insertLast(ListP &L, addressP P)
         insertFirst(L,P);
     }
 }
-void insertAscendingID(ListP &L, addressP P)
+bool insertAscendingID(ListP &L, addressP P)
 {
+    bool returnvalue = true;
     addressP Q = L.first;
     if (!isEmpty(L))
     {
@@ -127,6 +129,8 @@ void insertAscendingID(ListP &L, addressP P)
             else if (P->info.ID == Q->info.ID)
             {
                 cout << "ID SUDAH ADA" << endl;
+                returnvalue = false;
+
             }
 
         }
@@ -135,7 +139,7 @@ void insertAscendingID(ListP &L, addressP P)
     {
         insertFirst(L,P);
     }
-
+    return returnvalue;
 }
 
 void deleteFirst(ListP &L, addressP &P)
@@ -256,8 +260,9 @@ void printParent(ListP L)
         while(P != NULL)
         {
             infotypeP x = P->info;
-            cout << "===ID Gerbang : " << x.ID << endl;
-            cout << "\tAlamat Gerbang : " << x.nama << endl;
+            cout << "===ID Lantai : " << x.ID << endl;
+            cout << "\tNama Lantai : " << x.nama << endl;
+            cout << "\tAlamat Lantai : " << x.alamat << endl;
             P = P->next;
         }
         cout << endl;
@@ -271,22 +276,42 @@ void printAll(ListP L)
     **/
 
 //PUT YOUR CODE HERE//
-    if (!isEmpty(L))
+    if (isEmpty(L))
     {
-        for(addressP P = L.first; P!=NULL; P=P->next)
-        {
-            infotypeP x = P->info;
-            cout << "ID : " << x.ID << endl;
-            cout << "Nama : " << x.nama << endl;
-            cout << "Lain-Lain : " << x.lainlain << endl;
-            cout << "List Child = " << endl;
-            printChild(P->child);
-        }
+        cout << "Data masih kosong" << endl;
     }
+    else
+    {
+        cout << endl;
+        addressP P = L.first;
+        while(P != NULL)
+        {
+            cout << "Data pada " << P->info.nama << " (ID:"<<P->info.ID <<")"<< endl;
+            cout << "Daftar Kendaraan :" << endl;
+            if (P->child.first!=NULL)
+            {
+                addressc child = P->child.first;
+                while(child != NULL)
+                {
+                    cout << "ID : " << child->info.ID << "\t Nomor Polisi : " << child->info.nopol << endl;
+                    child = next(child);
+                }
+            }
+            else
+            {
+                cout << "Kosong" << endl;
+            }
 
+            P = next(P);
+        }
+
+    }
 }
 void SortingParent(ListP &L)
 {
+    /**
+    NIM : 1301154160
+    **/
     addressP first = L.first;
     infotypeP minimum;
     while(first != L.last)
@@ -335,3 +360,235 @@ void SortingParent(ListP &L)
     }
 
 }
+
+void insertChild(ListP L)
+{
+
+    /**
+        NIM : 1301154160
+    **/
+
+//PUT YOUR CODE HERE//
+    infotypeP ortu;
+    infotypec bocah;
+
+    printParent(L);
+    cout << "Masukkan ID Lantai yang mau di parkirin : ";
+    cin >> ortu.ID;
+    bocah.waktumasuk = time(0);
+    addressP P = findElm(L,ortu);
+    if (P==NULL)
+    {
+        cout << "Lantai parkir tidak ditemukan" << endl;
+    }
+    else
+    {
+        bool status = false;
+        while(!status){
+        cout << "Lantai Parkir ditemukan" << endl;
+        cout << "Input ID :";
+        cin >> bocah.ID;
+        cout << "Nomor Polisi :";
+        getline(cin,bocah.nopol);
+        getline(cin,bocah.nopol);
+        while(bocah.jenis != "Mobil" && bocah.jenis != "Motor")
+        {
+            cout << "Jenis Kendaraan (Mobil / Motor) : ";
+            cin >> bocah.jenis;
+        }
+        status = insertAscendingID(P->child,alokasi(bocah));
+        }
+    }
+}
+
+void inputParent(ListP &L)
+{
+    bool status = false;
+    while(!status)
+    {
+        infotypeP x;
+        cout << "Masukkan ID : ";
+        cin >> x.ID;
+        cout << "Masukkan Nama Lantai : ";
+        getline(cin,x.nama);
+        getline(cin,x.nama);
+        cout << "Masukkan Alamat Lantai : ";
+        getline(cin,x.alamat);
+        status = insertAscendingID(L,alokasi(x));
+    }
+}
+
+addressc cariNopol(ListP L,string nopol)
+{
+    addressP P = L.first;
+    addressc Q = NULL;
+    infotypec x;
+    bool found = false;
+    while(P!=NULL && !found)
+    {
+        if (P->child.first != NULL && Q == NULL)
+        {
+            Q = findNopol(P->child,nopol);
+            if (Q != NULL)
+                found = true;
+        }
+        P = P->next;
+    }
+    return Q;
+}
+
+addressc CariKendaraan(ListP L)
+{
+    string nopol;
+    cout << "Masukkan nopol : ";
+    cin >> nopol;
+    return cariNopol(L,nopol);
+}
+
+void reporting(ListP L)
+{
+    /**
+    kendaraan, Lantai, Jam Masuk, Biaya, Jumlah, Rata-rata kendaraan tiap lantai, Keragaman data kendaraan
+
+    **/
+        /**
+        NIM : 1301154160
+        **/
+    int totalkendaraan = 0;
+    infotypec kendaraanterlama;
+    double terlama = 0;
+    double rata2lama = 0;
+
+    addressP PParent = L.first;
+    cout << "Reporting :" << endl;
+    while(PParent!=NULL)
+    {
+        infotypeP x = PParent->info;
+        cout << x.nama << endl;
+        addressc PChild = PParent->child.first;
+        cout << "Daftar Nomor Polisi yang Diparkir" << endl;
+        int jumlah = 0;
+        while(PChild != NULL)
+        {
+            jumlah++;
+            infotypec y = PChild->info;
+            cout << y.nopol << endl;
+            struct tm * now = localtime( & y.waktumasuk );
+            double selisihjam = (difftime(time(0),mktime(now))/3600);
+            if (selisihjam > terlama)
+            {
+                terlama = selisihjam;
+                kendaraanterlama = y;
+            }
+            rata2lama +=selisihjam;
+            nextparent(PChild);
+        }
+        totalkendaraan += jumlah;
+        cout << "Total Kendaraan di " << x.nama << " adalah " << jumlah << " buah kendaraan" << endl;
+
+        cout << endl;
+        nextparent(PParent);
+    }
+    if (totalkendaraan > 0)
+    {
+        struct tm * ubahkewaktu = localtime( & kendaraanterlama.waktumasuk );
+        rata2lama = rata2lama/totalkendaraan;
+        cout << "Kendaraan yang parkir terlama adalah " << kendaraanterlama.jenis
+             << " dengan nomor polisi " << kendaraanterlama.nopol
+             << " dengan lama parkir " << terlama << " jam"
+             << " dari jam " << ubahkewaktu->tm_hour << ":" << ubahkewaktu->tm_min << ":" << ubahkewaktu->tm_sec << endl;
+        cout << "Total kendaraan yang parkir di semua lantai adalah " << totalkendaraan << " buah kendaraan" << endl;
+        cout << "Rata-rata lamanya parkir adalah " << rata2lama << " Jam" << endl;
+    }
+    else
+    {
+        cout << "Data kosong" << endl;
+    }
+}
+
+void ubahdata(ListP &L)
+{
+    cout << "Data apa yang ingin diubah :\n1. Lantai\n2. Kendaraan" << endl;
+    int pilihan;
+    cin >> pilihan;
+    if (pilihan == 1)
+    {
+        /**
+        NIM : 1301154160
+        **/
+        printParent(L);
+        infotypeP Lantai;
+        cout << "Masukkan ID Lantai = ";
+        cin >> Lantai.ID;
+        addressP hasil = findElm(L,Lantai);
+        if (hasil == NULL)
+        {
+            cout << "Data lantai tidak ditemukan" << endl;
+        }
+        else
+        {
+            cout << "Masukkan Nama Lantai baru : ";
+            getline(cin,Lantai.nama);
+            getline(cin,Lantai.nama);
+            cout << "Masukkan Alamat Lantai baru : ";
+            getline(cin,Lantai.alamat);
+            hasil->info = Lantai;
+        }
+    }
+
+    else if (pilihan == 2)
+    {
+        /**
+        NIM : 1301150034
+        **/
+
+
+    }
+    else
+    {
+        cout << "Pilihan salah" << endl;
+    }
+}
+infotypeP createDML(int ID, string nama, string alamat){
+    infotypeP x;
+    x.ID = ID;
+    x.nama = nama;
+    x.alamat = alamat;
+    return x;
+}
+
+/**fungsi createDML(int IDparent, string nopol, string jenis, string jammasuk)
+
+
+    DIBAWAH INI BANTUAN YAH SAY
+    infotypeP ortu;
+    infotypec bocah;
+
+    printParent(L);
+    cout << "Masukkan ID Lantai yang mau di parkirin : ";
+    cin >> ortu.ID;
+    bocah.waktumasuk = time(0);
+    addressP P = findElm(L,ortu);
+    if (P==NULL)
+    {
+        cout << "Lantai parkir tidak ditemukan" << endl;
+    }
+    else
+    {
+        bool status = false;
+        while(!status){
+        cout << "Lantai Parkir ditemukan" << endl;
+        cout << "Input ID :";
+        cin >> bocah.ID;
+        cout << "Nomor Polisi :";
+        getline(cin,bocah.nopol);
+        getline(cin,bocah.nopol);
+        while(bocah.jenis != "Mobil" && bocah.jenis != "Motor")
+        {
+            cout << "Jenis Kendaraan (Mobil / Motor) : ";
+            cin >> bocah.jenis;
+        }
+        status = insertAscendingID(P->child,alokasi(bocah));
+        }
+    }
+    **/

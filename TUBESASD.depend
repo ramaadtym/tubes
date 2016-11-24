@@ -44,26 +44,110 @@
 	"parent.h"
 	"stdafx.h"
 
-1479568988 source:f:\tugas\tubes\asdganteng\child.cpp
+1479925479 source:f:\tugas\tubes\asdganteng\child.cpp
 	"child.h"
+	"parkir.h"
 
-1479568988 f:\tugas\tubes\asdganteng\child.h
+1479925484 f:\tugas\tubes\asdganteng\child.h
+	<iostream>
 	"stdafx.h"
 
-1479568988 f:\tugas\tubes\asdganteng\stdafx.h
+1479925962 f:\tugas\tubes\asdganteng\stdafx.h
 	<stdlib.h>
 	<iostream>
+	<time.h>
+	<windows.h>
 
-1479571485 source:f:\tugas\tubes\asdganteng\parent.cpp
+1479925907 source:f:\tugas\tubes\asdganteng\parent.cpp
 	"parent.h"
 	"stdafx.h"
 
-1479568988 f:\tugas\tubes\asdganteng\parent.h
+1479924593 f:\tugas\tubes\asdganteng\parent.h
 	"child.h"
 	"stdafx.h"
 
-1479571594 source:f:\tugas\tubes\asdganteng\main.cpp
+1479925737 source:f:\tugas\tubes\asdganteng\main.cpp
 	<iostream>
 	<stdlib.h>
 	"parent.h"
+	"child.h"
+	"parkir.h"
+
+1479925576 f:\tugas\tubes\asdganteng\parkir.h
+	"stdafx.h"
+
+1479925679 source:f:\tugas\tubes\asdganteng\parkir.cpp
+	"parkir.h"
+
+1479961752 source:d:\faishal\telkom university\asd\asdganteng\main.cpp
+	<iostream>
+	<stdlib.h>
+	"parent.h"
+	"child.h"
+	"parkir.h"
+
+1479961461 d:\faishal\telkom university\asd\asdganteng\parent.h
+	"child.h"
+	"stdafx.h"
+
+1479959417 d:\faishal\telkom university\asd\asdganteng\child.h
+	<iostream>
+	"stdafx.h"
+
+1479925962 d:\faishal\telkom university\asd\asdganteng\stdafx.h
+	<stdlib.h>
+	<iostream>
+	<time.h>
+	<windows.h>
+
+1479961198 d:\faishal\telkom university\asd\asdganteng\parkir.h
+	"stdafx.h"
+	"parent.h"
+
+1479961704 source:d:\faishal\telkom university\asd\asdganteng\parent.cpp
+	"parent.h"
+	"stdafx.h"
+
+1479961009 source:d:\faishal\telkom university\asd\asdganteng\parkir.cpp
+	"parkir.h"
+
+1479959504 source:d:\faishal\telkom university\asd\asdganteng\child.cpp
+	"child.h"
+	"parkir.h"
+
+1480002100 source:c:\users\rama aditya maulana\desktop\tasks\01 - strukdat\tubes\asdganteng\child.cpp
+	"child.h"
+	"parkir.h"
+
+1479992040 c:\users\rama aditya maulana\desktop\tasks\01 - strukdat\tubes\asdganteng\child.h
+	<iostream>
+	"stdafx.h"
+
+1479925962 c:\users\rama aditya maulana\desktop\tasks\01 - strukdat\tubes\asdganteng\stdafx.h
+	<stdlib.h>
+	<iostream>
+	<time.h>
+	<windows.h>
+
+1479961198 c:\users\rama aditya maulana\desktop\tasks\01 - strukdat\tubes\asdganteng\parkir.h
+	"stdafx.h"
+	"parent.h"
+
+1480002389 c:\users\rama aditya maulana\desktop\tasks\01 - strukdat\tubes\asdganteng\parent.h
+	"child.h"
+	"stdafx.h"
+
+1479993424 source:c:\users\rama aditya maulana\desktop\tasks\01 - strukdat\tubes\asdganteng\parkir.cpp
+	"parkir.h"
+
+1480000714 source:c:\users\rama aditya maulana\desktop\tasks\01 - strukdat\tubes\asdganteng\main.cpp
+	<iostream>
+	<stdlib.h>
+	"parent.h"
+	"child.h"
+	"parkir.h"
+
+1480001635 source:c:\users\rama aditya maulana\desktop\tasks\01 - strukdat\tubes\asdganteng\parent.cpp
+	"parent.h"
+	"stdafx.h"
 

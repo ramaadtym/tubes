@@ -2,9 +2,12 @@
 #include <stdlib.h>
 #include "parent.h"
 #include "child.h"
+#include "parkir.h"
 using namespace std;
-
-
+void menu(ListP &L);
+void isiDataAwal(ListP &L);
+long hargaperjam;
+Harga hargaparkir;
 /**
 =============================OBJECTIVE==================================
 1. insert data
@@ -30,50 +33,89 @@ using namespace std;
 
 int main()
 {
+    time_t timenow = time(0);
+    struct tm * now = localtime( &timenow );
+    cout << "Waktu sekarang adalah " << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << endl;
     cout << "Hello world!" << endl;
     ListP L;
     createList(L);
-    infotypeP x;
-    x.ID = 23;
-    x.nama = "a";
-    x.lainlain = "haha";
-    insertAscendingID(L,alokasi(x));
-    x.ID = 20;
-    x.nama = "b";
-    x.lainlain = "haha";
-    insertAscendingID(L,alokasi(x));
-    x.ID = 25;
-    x.nama = "c";
-    x.lainlain = "haha";
-    insertAscendingID(L,alokasi(x));
-    x.ID = 27;
-    x.nama = "d";
-    x.lainlain = "haha";
-    insertAscendingID(L,alokasi(x));
-    x.ID = 26;
-    x.nama = "e";
-    x.lainlain = "haha";
-    insertAscendingID(L,alokasi(x));
-    x.ID = 90;
-    x.nama = "f";
-    x.lainlain = "haha";
-    insertAscendingID(L,alokasi(x));
-    cout << "printparent" << endl;
-    printParent(L);
-    cout << "sorted by name" << endl;
-    SortingParent(L);
-    printParent(L);
-
-    Listc N;
-    createList(N);
-    infotypec y;
-
-    y.ID = 2;
-    y.nama = "ahmad";
-    y.lainlain = "pp";
-    insertFirst(N,alokasi(y));
-
-    printChild(N);
-
+    hargaparkir.mobil = 5000;
+    hargaparkir.motor = 2000;
+    isiDataAwal(L);
+    menu(L);
     return 0;
 }
+void menu(ListP &L)
+{
+    addressc P;
+    string nopols;
+    int pilihan = NULL;
+    do
+    {
+        clrscr;
+        cout << "Main Menu" << endl;
+        cout << "1. Insert Lantai" << endl;
+        cout << "2. Insert Kendaraan Parkir" << endl;//insert child
+        cout << "3. Bayar Parkir" << endl;//search and delete and bayar dong jelas masa ngutang :3
+        cout << "4. Cari Kendaraan" << endl;//search and view
+        cout << "5. Menampilkan Semua Kendaraan Parkir" << endl;//printAll
+        cout << "6. Reporting" << endl;//reporting dibagi 2
+        cout << "7. Ubah data kendaraan atau lantai" << endl;
+        cout << "8. Urutkan bedasarkan Nama Lantai" << endl;
+        cout << "9. Setting Biaya Parkir" << endl;
+        cout << "0. Keluar" << endl;
+        cout << "Input : ";
+        cin >> pilihan;
+        clrscr;
+        switch(pilihan)
+        {
+        case 1:
+            inputParent(L);
+            break;
+        case 2:
+            insertChild(L);
+            break;
+        case 3:
+            P = CariKendaraan(L);
+            BayarParkir(P,hargaparkir);
+            break;
+        case 4:
+            break;
+        case 5:
+            printAll(L);
+            break;
+        case 6:
+            reporting(L);
+            break;
+        case 7:
+            ubahdata(L);
+            break;
+        case 8:
+            SortingParent(L);
+            printParent(L);
+            break;
+        case 9:
+            BiayaParkir(hargaparkir);
+            break;
+        case 0:
+            cout << "Terima kasih sudah menggunakan aplikasi kami\nAplikasi ini dibuat oleh\n1. Faishal Rachman (1301154160)\n2. Rama Aditya Maulana (1301150034)\n\nUntuk memenuhi Tugas Besar matakuliah Algoritma dan Struktur Data\n";
+            break;
+        default:
+            cout << "Input salah" << endl;
+            break;
+        }
+        pause;
+    }
+    while(pilihan != 0);
+}
+void isiDataAwal(ListP &L)
+{
+    infotypeP x;
+    x = createDML(6,"Lantai Dasar","Sukapura, Telkom University");
+    insertAscendingID(L,alokasi(x));
+    /**infotypec y;
+    y = createDML(childnya yah ram ngikutin aja yang gua udah buat anjenk)
+    **/
+
+}
+
