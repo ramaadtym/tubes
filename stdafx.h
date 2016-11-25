@@ -5,6 +5,7 @@
 #include <iostream>
 #include <time.h>       /* time_t, struct tm, difftime, time, mktime */
 #include <windows.h>
+#include <string>
 using namespace std;
 #define clrscr system("cls")
 #define pause system("pause")

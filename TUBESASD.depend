@@ -151,3 +151,40 @@
 	"parent.h"
 	"stdafx.h"
 
+1480002100 source:c:\users\ipat1\documents\codingan\asdganteng\child.cpp
+	"child.h"
+	"parkir.h"
+
+1479992040 c:\users\ipat1\documents\codingan\asdganteng\child.h
+	<iostream>
+	"stdafx.h"
+
+1480075519 c:\users\ipat1\documents\codingan\asdganteng\stdafx.h
+	<stdlib.h>
+	<iostream>
+	<time.h>
+	<windows.h>
+	<string>
+
+1480076352 c:\users\ipat1\documents\codingan\asdganteng\parkir.h
+	"stdafx.h"
+	"parent.h"
+
+1480076452 c:\users\ipat1\documents\codingan\asdganteng\parent.h
+	"child.h"
+	"stdafx.h"
+
+1480076483 source:c:\users\ipat1\documents\codingan\asdganteng\main.cpp
+	<iostream>
+	<stdlib.h>
+	"parent.h"
+	"child.h"
+	"parkir.h"
+
+1480076302 source:c:\users\ipat1\documents\codingan\asdganteng\parent.cpp
+	"parent.h"
+	"stdafx.h"
+
+1480076379 source:c:\users\ipat1\documents\codingan\asdganteng\parkir.cpp
+	"parkir.h"
+

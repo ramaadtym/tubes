@@ -48,6 +48,7 @@ int main()
 void menu(ListP &L)
 {
     addressc P;
+    addressP Q;
     string nopols;
     int pilihan = NULL;
     do
@@ -76,8 +77,8 @@ void menu(ListP &L)
             insertChild(L);
             break;
         case 3:
-            P = CariKendaraan(L);
-            BayarParkir(P,hargaparkir);
+            P = CariKendaraan(L,Q);
+            BayarParkir(P,hargaparkir,Q);
             break;
         case 4:
             break;
@@ -111,11 +112,21 @@ void menu(ListP &L)
 void isiDataAwal(ListP &L)
 {
     infotypeP x;
-    x = createDML(6,"Lantai Dasar","Sukapura, Telkom University");
+    x = DMLParent(6,"Lantai Dasar","Sukapura, Telkom University");
     insertAscendingID(L,alokasi(x));
-    /**infotypec y;
-    y = createDML(childnya yah ram ngikutin aja yang gua udah buat anjenk)
-    **/
+
+    x = DMLParent(3,"Lantai Satu","Sukapura, Telkom University");
+    insertAscendingID(L,alokasi(x));
+    DMLChild(L,3,10,"B 1 RI","Mobil");
+    DMLChild(L,3,25,"D 535 D","Motor");
+
+    x = DMLParent(10,"Lantai Dua","Sukapura, Telkom University");
+    insertAscendingID(L,alokasi(x));
+    DMLChild(L,6,10,"D 1359 Z","Motor");
+    DMLChild(L,6,25,"D 2456 AA","Motor");
+    DMLChild(L,6,1,"FF 2556 5","Mobil");
+    DMLChild(L,6,66,"N 1366 Z","Motor");
+
 
 }
 

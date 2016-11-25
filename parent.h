@@ -50,9 +50,10 @@ bool isEmpty(ListP L);
 void SortingParent(ListP &L);
 void ReportingLantai(ListP L);
 void inputParent(ListP &L);
-addressc CariKendaraan(ListP L);
+addressc CariKendaraan(ListP L,addressP &P);
 addressc cariNopol(ListP L,string nopol);
 void reporting(ListP L);
 void ubahdata(ListP &L);
-infotypeP createDML(int ID, string nama, string alamat);
+infotypeP DMLParent(int ID, string nama, string alamat);
+void DMLChild(ListP &L,int ID, int IDKendaraan, string nopol, string jenis);
 #endif // PARENT_H_INCLUDED

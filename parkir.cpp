@@ -45,7 +45,7 @@ long Hitungbiayaparkir(double berapajam, string jenis, Harga hargaparkir)
     else if (kendaraan == "motor")
         return ceil(berapajam)*hargaparkir.motor;
 }
-void BayarParkir(addressc &P,Harga hargaparkir)
+void BayarParkir(addressc &P,Harga hargaparkir,addressP &Z)
 {
 
     if (P==NULL)
@@ -67,6 +67,7 @@ void BayarParkir(addressc &P,Harga hargaparkir)
         cin >> bayar;
         cout << "Uang yang dibayarkan : " << bayar << endl;
         cout << "Kembalian : " << harga-bayar << endl;
+        deletebySearch(Z->child,x);
 
     }
 }

@@ -302,6 +302,7 @@ void printAll(ListP L)
                 cout << "Kosong" << endl;
             }
 
+        cout << endl << endl << endl;
             P = next(P);
         }
 
@@ -418,7 +419,7 @@ void inputParent(ListP &L)
     }
 }
 
-addressc cariNopol(ListP L,string nopol)
+addressc cariNopol(ListP L,string nopol, addressP &Parent)
 {
     addressP P = L.first;
     addressc Q = NULL;
@@ -429,20 +430,23 @@ addressc cariNopol(ListP L,string nopol)
         if (P->child.first != NULL && Q == NULL)
         {
             Q = findNopol(P->child,nopol);
-            if (Q != NULL)
+            if (Q != NULL){
+                Parent=P;
                 found = true;
+            }
         }
         P = P->next;
     }
     return Q;
 }
 
-addressc CariKendaraan(ListP L)
+addressc CariKendaraan(ListP L,addressP &P)
 {
     string nopol;
     cout << "Masukkan nopol : ";
-    cin >> nopol;
-    return cariNopol(L,nopol);
+    getline(cin,nopol);
+    getline(cin,nopol);
+    return cariNopol(L,nopol,P);
 }
 
 void reporting(ListP L)
@@ -460,7 +464,7 @@ void reporting(ListP L)
     double rata2lama = 0;
 
     addressP PParent = L.first;
-    cout << "Reporting :" << endl;
+    cout << "Reporting Parkir :" << endl << endl;
     while(PParent!=NULL)
     {
         infotypeP x = PParent->info;
@@ -494,16 +498,17 @@ void reporting(ListP L)
         struct tm * ubahkewaktu = localtime( & kendaraanterlama.waktumasuk );
         rata2lama = rata2lama/totalkendaraan;
         cout << "Kendaraan yang parkir terlama adalah " << kendaraanterlama.jenis
-             << " dengan nomor polisi " << kendaraanterlama.nopol
-             << " dengan lama parkir " << terlama << " jam"
-             << " dari jam " << ubahkewaktu->tm_hour << ":" << ubahkewaktu->tm_min << ":" << ubahkewaktu->tm_sec << endl;
+             << "\n dengan nomor polisi " << kendaraanterlama.nopol
+             << "\n dengan lama parkir " << terlama << " jam"
+             << "\n dari jam " << ubahkewaktu->tm_hour << ":" << ubahkewaktu->tm_min << ":" << ubahkewaktu->tm_sec << endl;
         cout << "Total kendaraan yang parkir di semua lantai adalah " << totalkendaraan << " buah kendaraan" << endl;
-        cout << "Rata-rata lamanya parkir adalah " << rata2lama << " Jam" << endl;
+        cout << "Rata-rata lamanya parkir adalah " << rata2lama << " Jam" << endl << endl << endl << endl;
     }
     else
     {
         cout << "Data kosong" << endl;
     }
+
 }
 
 void ubahdata(ListP &L)
@@ -549,12 +554,25 @@ void ubahdata(ListP &L)
         cout << "Pilihan salah" << endl;
     }
 }
-infotypeP createDML(int ID, string nama, string alamat){
+infotypeP DMLParent(int ID, string nama, string alamat){
     infotypeP x;
     x.ID = ID;
     x.nama = nama;
     x.alamat = alamat;
     return x;
+}
+void DMLChild(ListP &L,int ID, int IDKendaraan, string nopol, string jenis){
+    infotypeP x;
+    x.ID = ID;
+    addressP P = findElm(L,x);
+    if (P != NULL){
+    infotypec y;
+    y.ID = IDKendaraan;
+    y.jenis = jenis;
+    y.nopol = nopol;
+    y.waktumasuk = time(0);
+    insertAscendingID(P->child,alokasi(y));
+    }
 }
 
 /**fungsi createDML(int IDparent, string nopol, string jenis, string jammasuk)
