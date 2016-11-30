@@ -112,6 +112,8 @@ void deleteFirst(Listc &L, addressc &P)
 {
     /**
         NIM :1301150034
+        IS: list mungkin kosong
+        FS: menghapus elemen pertama dari list
     **/
 
 //PUT YOUR CODE HERE//
@@ -127,6 +129,8 @@ void deleteLast(Listc &L, addressc &P)
 {
     /**
         NIM :1301150034
+        IS: list mungkin kosong
+        FS: menghapus elemen terakhir dari list
     **/
 
 //PUT YOUR CODE HERE//
@@ -149,7 +153,9 @@ void deleteLast(Listc &L, addressc &P)
 void deletebySearch(Listc &L,infotypec x, addressc &P)
 {
     /**
-        NIM : 1301150034
+        NIM :1301150034
+        IS: list mungkin kosong
+        FS: menghapus elemen yang dicari dari list
     **/
 
 //PUT YOUR CODE HERE//
@@ -184,6 +190,9 @@ addressc findElm(Listc L, infotypec x)
 {
     /**
         NIM :1301150034
+        IS: list mungkin kosong
+        FS: mengembalikan elemen dengan info.ID = x.ID,
+            mengembalikan Nil jika tidak ditemukan
     **/
 
 //PUT YOUR CODE HERE//
@@ -204,6 +213,11 @@ addressc findElm(Listc L, infotypec x)
     return C;
 }
 bool insertAscendingID(Listc &L, addressc P){
+    /**
+        NIM: 1301150034
+        IS: List mungkin kosong
+        FS: elemen yang ditunjuk p akan dimasukkan secara Ascending (terurut dari besar ke kecil)
+    **/
 
     bool returnvalue = true;
     addressc Q = first(L);
@@ -250,6 +264,8 @@ addressc findNopol(Listc L, string nopol)
 {
     /**
         NIM :1301150034
+        IS: list mungkin kosong
+        FS: mencari nomor polisi yang ada di dalam list
     **/
 
 //PUT YOUR CODE HERE//
@@ -275,6 +291,8 @@ void printChild(Listc L,Harga hargaparkir)
 {
     /**
         NIM :1301150034
+        IS: list l mungkin kosong
+        FS: menampilkan info dari seluruh child
     **/
 
 //PUT YOUR CODE HERE//
@@ -304,6 +322,8 @@ void SortingDesc(Listc &L)
 {
     /**
     NIM : 1301150034
+    IS  : list dalam keadaan Ascending (terurut dari kecil ke besar)
+    FS  : list terurut dalam keadaan Descending (terurut dari besar ke kecil)
     **/
     addressc pertama = first(L);
     infotypec besar;
@@ -333,7 +353,7 @@ void SortingDesc(Listc &L)
         infotypec x = besar;
         P = findElm(L,x);
 
-        //harus nya perintah ini di pake buat ID Lantai yang lain juga
+ 
         if(pertama == first(L)){
         Z = Nil;
         }
@@ -359,7 +379,12 @@ void SortingDesc(Listc &L)
         }
     }
 }
-void detilKendaraan(infotypec x){
+void detilKendaraan(infotypec x)
+{
+    /**
+        NIM: 1301150034
+        FS : menampilkan detil kendaraan sesuai yang di inputkan user
+    **/
     cout<<"DETIL KENDARAAN "<<x.nopol<<endl;
     cout<<"ID Parkir: "<<x.ID<<endl;
     cout<<"Jenis Kendaraan: "<<x.jenis<<endl;
