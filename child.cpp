@@ -4,6 +4,7 @@ void createList(Listc &L)
 {
     /**
         NIM :1301150034
+        FS: List dalam keadaan kosong
     **/
 
 //PUT YOUR CODE HERE//
@@ -13,6 +14,7 @@ addressc alokasi(infotypec x)
 {
     /**
         NIM :1301150034
+        FS: mengembalikan elemen list baru dengan info = x, next elemen = Nil
     **/
 
 //PUT YOUR CODE HERE//
@@ -31,6 +33,7 @@ void dealokasi(addressc &P)
 {
     /**
         NIM :1301150034
+        FS: menghapus elemen yang ditunjuk oleh P   
     **/
 
 //PUT YOUR CODE HERE//
@@ -42,6 +45,8 @@ void insertFirst(Listc &L, addressc P)
 {
     /**
         NIM :1301150034
+        IS : List L mungkin kosong
+        FS : elemen yang ditunjuk P menjadi elemen pertama pada List L    
     **/
 
 //PUT YOUR CODE HERE//
@@ -59,6 +64,7 @@ void insertAfter(Listc &L,addressc Prec, addressc P)
 {
     /**
         NIM :1301150034
+        
     **/
 
 //PUT YOUR CODE HERE//
