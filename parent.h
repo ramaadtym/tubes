@@ -11,6 +11,8 @@ struct infotypeP
     int ID;
     string nama;
     string alamat;
+    string petugas;
+    string kelas;
 };
 typedef struct Parent *addressP;
 struct Parent
@@ -47,13 +49,13 @@ addressP findElm(ListP L, infotypeP x);
 void printParent(ListP L);
 void printAll(ListP L);
 bool isEmpty(ListP L);
-void SortingParent(ListP &L);
-void ReportingLantai(ListP L);
+void SortingAll(ListP &L);
+//void ReportingLantai(ListP L);
 void inputParent(ListP &L);
 addressc CariKendaraan(ListP L,addressP &P);
-addressc cariNopol(ListP L,string nopol);
+//addressc cariNopol(ListP L,string nopol);
 void reporting(ListP L);
 void ubahdata(ListP &L);
-infotypeP DMLParent(int ID, string nama, string alamat);
+infotypeP DMLParent(int ID, string nama, string alamat,string petugas, string kelas);
 void DMLChild(ListP &L,int ID, int IDKendaraan, string nopol, string jenis, string nama, string pemilik);
 #endif // PARENT_H_INCLUDED

@@ -1,12 +1,12 @@
 #include <iostream>
 #include <stdlib.h>
 #include "parent.h"
-#include "child.h"
+//#include "child.h"
 #include "parkir.h"
 using namespace std;
 void menu(ListP &L);
 void isiDataAwal(ListP &L);
-long hargaperjam;
+//long hargaperjam;
 Harga hargaparkir;
 /**
 =============================OBJECTIVE==================================
@@ -83,7 +83,7 @@ void menu(ListP &L)
             BayarParkir(P,hargaparkir,Q);
             break;
         case 4:
-            P = CariKendaraan(L,Q);
+                P = CariKendaraan(L,Q);
             detilKendaraan(info(P));
             break;
         case 5:
@@ -96,9 +96,8 @@ void menu(ListP &L)
             ubahdata(L);
             break;
         case 8:
-            SortingParent(L);
+            SortingAll(L);
             cout<<"Tersorting!"<<endl;
-//            printParent(L);
             break;
         case 9:
             BiayaParkir(hargaparkir);
@@ -117,20 +116,20 @@ void menu(ListP &L)
 void isiDataAwal(ListP &L)
 {
     infotypeP x;
-    x = DMLParent(6,"Lantai Dasar","Sukapura, Telkom University");
+    x = DMLParent(6,"Lantai Dasar","Sukapura, Telkom University","Ipat","Reguler");
     insertAscendingID(L,alokasi(x));
 
-    x = DMLParent(3,"Lantai Satu","Sukapura, Telkom University");
+    x = DMLParent(3,"Lantai Satu","Sukapura, Telkom University","Vatana","Reguler");
     insertAscendingID(L,alokasi(x));
     DMLChild(L,3,10,"B 1 RI","Mobil","Nissan Juke","Faishal");
     DMLChild(L,3,25,"D 535 D","Motor","Blade","Rama");
 
-    x = DMLParent(10,"Lantai Dua","Sukapura, Telkom University");
+    x = DMLParent(10,"Lantai Dua","Sukapura, Telkom University","Vatana","First");
     insertAscendingID(L,alokasi(x));
-    DMLChild(L,6,10,"D 1359 Z","Motor","Supra X Helm In","Dani");
-    DMLChild(L,6,25,"D 2456 AA","Motor","Vario","Vatana");
-    DMLChild(L,6,1,"FF 2556 5","Mobil","MIO GT","Sarah");
-    DMLChild(L,6,66,"N 1366 Z","Motor","Beat","Yusuf");
+    DMLChild(L,6,10,"FF 9 Z","Motor","Supra X Helm In","Dani");
+    DMLChild(L,6,25,"D 246 AA","Motor","Vario","Vatana");
+    DMLChild(L,6,65,"Z 2556 S","Mobil","MIO GT","Sarah");
+    DMLChild(L,6,66,"N 166 Z","Motor","Beat","Tukimin");
 
 
 }

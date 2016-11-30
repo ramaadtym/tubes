@@ -55,28 +55,25 @@ void BayarParkir(addressc &P,Harga hargaparkir,addressP &Z)
     else
     {
         clrscr;
-        long bayar;
+        long bayar = 0;
         infotypec x = P->info;
-        cout << "Nomor Polisi : " << x.nopol << endl;
+        detilKendaraan(x);
         struct tm * now = localtime( & x.waktumasuk );
-        cout << "Jam masuk : " << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << endl;
         double selisihjam = (difftime(time(0),mktime(now))/3600);
         long harga = Hitungbiayaparkir(selisihjam,x.jenis,hargaparkir);
-        cout << "Biaya parkir : " << harga << endl;
-        cout << "Bayar = ";
+        cout << "Biaya parkir "<< x.jenis << " adalah Rp " << harga << endl;
+        while(bayar < harga){
+
+        cout << "Bayar : Rp ";
         cin >> bayar;
-        cout << "Uang yang dibayarkan : " << bayar << endl;
-        cout << "Kembalian : " << harga-bayar << endl;
-        /** \brief
-         *
-         * \param
-         * \param
-         * \return
-         *
-         */
+            if (bayar < harga)
+                cout << "input salah atau uang kurang" << endl;
+        }
+        cout << "Uang yang dibayarkan : Rp" << bayar << endl;
+        cout << "Kembalian : Rp" << abs(harga-bayar) << endl;
         addressc P;
         deletebySearch(child(Z),x,P);
-        delete P;
+        dealokasi(P);
 
     }
 }

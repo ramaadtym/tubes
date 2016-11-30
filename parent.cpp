@@ -6,20 +6,36 @@ void createList(ListP &L)
 {
     /**
         NIM : 1301154160
+        Deskripsi : Membuat sebuah list baru
+        FS : Terbentuk sebuah list dengan First dan Last = NULL
+        IS : List_Parent L
+
     **/
 
 //PUT YOUR CODE HERE//
     L.first = NULL;
     L.last = NULL;
 }
+
 bool isEmpty(ListP L)
 {
+    /**
+        NIM : 1301154160
+        Deskripsi : Memeriksa ListP L empty tidak
+        FS : Jika list kosong return true jika ada isinya return false
+        IS : List_Parent L
+
+    **/
     return (L.first == NULL && L.last == NULL);
 }
 addressP alokasi(infotypeP x)
 {
     /**
         NIM : 1301154160
+        Deskripsi : Memeriksa ListP L empty tidak
+        FS : Jika list kosong return true jika ada isinya return false
+        IS : List_Parent L
+
     **/
 
 //PUT YOUR CODE HERE//
@@ -27,6 +43,8 @@ addressP alokasi(infotypeP x)
     P->info.ID = x.ID;
     P->info.nama = x.nama;
     P->info.alamat = x.alamat;
+    P->info.petugas = x.petugas;
+    P->info.kelas = x.kelas;
     createList(P->child);
     return P;
 
@@ -35,6 +53,10 @@ void dealokasi(addressP &P)
 {
     /**
         NIM : 1301154160
+        Deskripsi : Menghapus address P dari memori
+        FS : addressParent P tidak teralokasi
+        IS : addressParent
+
     **/
 
 //PUT YOUR CODE HERE//
@@ -46,6 +68,10 @@ void insertFirst(ListP &L, addressP P)
 {
     /**
         NIM : 1301154160
+        Deskripsi : Elemen P menjadi elemen pertama list L
+        FS : ListParent L terisi oleh addressP
+        IS : ListParent, AddressParent
+
     **/
 
 //PUT YOUR CODE HERE//
@@ -69,6 +95,10 @@ void insertAfter(ListP &L,addressP Prec, addressP P)
 {
     /**
         NIM : 1301154160
+        Deskripsi : Elemen P menjadi elemen pada list L setelah address Prec
+        FS : ListParent L terisi oleh addressParent P setelah Prec
+        IS : ListParent, AddressParent
+
     **/
 
 //PUT YOUR CODE HERE//
@@ -86,8 +116,13 @@ void insertAfter(ListP &L,addressP Prec, addressP P)
 }
 void insertLast(ListP &L, addressP P)
 {
+
     /**
         NIM : 1301154160
+        Deskripsi : Elemen P menjadi elemen pertama list L
+        FS : ListParent L terisi oleh addressP
+        IS : ListParent, AddressParent
+
     **/
 
 //PUT YOUR CODE HERE//
@@ -105,6 +140,14 @@ void insertLast(ListP &L, addressP P)
 }
 bool insertAscendingID(ListP &L, addressP P)
 {
+
+    /**
+        NIM : 1301154160
+        Deskripsi : Menyimpan addressParent pada ListParent L secara ascending
+        FS : ListParent L terisi oleh addressP secara ascending
+        IS : ListParent, AddressParent
+
+    **/
     bool returnvalue = true;
     addressP Q = L.first;
     if (!isEmpty(L))
@@ -144,8 +187,13 @@ bool insertAscendingID(ListP &L, addressP P)
 
 void deleteFirst(ListP &L, addressP &P)
 {
+
     /**
         NIM : 1301154160
+        Deskripsi : Menghapus elemen pertama di address L dan disimpan di P
+        FS : Elemen pertama terhapus
+        IS : ListParent, AddressParent
+
     **/
 
 //PUT YOUR CODE HERE//
@@ -169,6 +217,10 @@ void deleteLast(ListP &L, addressP &P)
 {
     /**
         NIM : 1301154160
+        Deskripsi : Menghapus elemen terakhir di address L dan disimpan di P
+        FS : Elemen terakhir terhapus
+        IS : ListParent, AddressParent
+
     **/
 
 //PUT YOUR CODE HERE//
@@ -192,6 +244,10 @@ void deletebySearch(ListP &L,infotypeP x, addressP &P)
 {
     /**
         NIM : 1301154160
+        Deskripsi : Menghapus elemen yang berinfotype x berdasarkan ID
+        FS : elemen dengan infotype X terhapus
+        IS : ListParent, AddressParent, InfotypeParent
+
     **/
 
 //PUT YOUR CODE HERE//
@@ -224,6 +280,10 @@ addressP findElm(ListP L, infotypeP x)
 {
     /**
         NIM : 1301154160
+        Deskripsi : Mencari Elemen dengan infotype x pada List L dan menreturn addressParentnya
+        FS : addressParent ter return atau NULL
+        IS : ListParent, infotype x
+
     **/
 
 //PUT YOUR CODE HERE//
@@ -250,6 +310,10 @@ void printParent(ListP L)
 {
     /**
         NIM : 1301154160
+        Deskripsi : Menampilkan informasi lantai secara detil.
+        FS : Elemen terakhir terhapus
+        IS : ListParent, AddressParent
+
     **/
 
 //PUT YOUR CODE HERE//
@@ -263,6 +327,8 @@ void printParent(ListP L)
             cout << "===ID Lantai : " << x.ID << endl;
             cout << "\tNama Lantai : " << x.nama << endl;
             cout << "\tAlamat Lantai : " << x.alamat << endl;
+            cout << "\tPetugas Lantai : " << x.petugas << endl;
+            cout << "\tKelas Lantai : " << x.kelas << endl;
             P = P->next;
         }
         cout << endl;
@@ -273,8 +339,10 @@ void printAll(ListP L)
 {
     /**
         NIM : 1301154160
-    **/
+        Deskripsi : Menampilkan info umum semua data parent dan child.
+        FS : Ditampilkan info seluruh data parent dan child
 
+    **/
 //PUT YOUR CODE HERE//
     if (isEmpty(L))
     {
@@ -307,10 +375,14 @@ void printAll(ListP L)
         }
     }
 }
-void SortingParent(ListP &L)
+void SortingAll(ListP &L)
 {
     /**
-    NIM : 1301154160
+        NIM : 1301154160
+        Deskripsi : Mengurutkan seluruh elemen parent secara ascending berdasarkan nama dan memanggil sortingchild
+                    di setiap parent
+        FS : List Terurut
+
     **/
     addressP first = L.first;
     infotypeP minimum;
@@ -329,12 +401,6 @@ void SortingParent(ListP &L)
             }
             Q = Q->next;
         }
-        /*
-        system("cls");
-        cout << "minimum ID = " << minimum.ID << endl;
-        cout << "first = " << first->info.ID << endl;
-        printParent(L);
-        system("pause");*/
         addressP P,Z;
         Z = first->prev;
         if (findElm(L,minimum) != L.first)
@@ -359,7 +425,7 @@ void SortingParent(ListP &L)
         minimum.ID = NULL;
         minimum.nama = "";
     }
-    addressP P = first;
+    addressP P = first(L);
     while(P != NULL){
          SortingDesc(child(P));
          nextparent(P);
@@ -371,6 +437,9 @@ void insertChild(ListP L)
 
     /**
         NIM : 1301154160
+        Deskripsi : Meminta inputan user untuk menyimpan data child berupa ID parent yang dituju dan detil childnya.
+        FS : child masuk ke parent yang diinputkan user
+
     **/
 
 //PUT YOUR CODE HERE//
@@ -408,6 +477,12 @@ void insertChild(ListP L)
 
 void inputParent(ListP &L)
 {
+    /**
+        NIM : 1301154160
+        Deskripsi : Meminta inputan user untuk menyimpan data parent.
+        FS : parent masuk ke list secara ascending
+
+    **/
     bool status = false;
     while(!status)
     {
@@ -423,8 +498,13 @@ void inputParent(ListP &L)
     }
 }
 
-addressc cariNopol(ListP L,string nopol, addressP &Parent)
+
+addressc CariKendaraan(ListP L,addressP &Parent)
 {
+    string nopol;
+    cout << "Masukkan nopol : ";
+    getline(cin,nopol);
+    getline(cin,nopol);
     addressP P = L.first;
     addressc Q = NULL;
     infotypec x;
@@ -445,21 +525,8 @@ addressc cariNopol(ListP L,string nopol, addressP &Parent)
     return Q;
 }
 
-addressc CariKendaraan(ListP L,addressP &P)
-{
-    string nopol;
-    cout << "Masukkan nopol : ";
-    getline(cin,nopol);
-    getline(cin,nopol);
-    return cariNopol(L,nopol,P);
-}
-
 void reporting(ListP L)
 {
-    /**
-    kendaraan, Lantai, Jam Masuk, Biaya, Jumlah, Rata-rata kendaraan tiap lantai, Keragaman data kendaraan
-
-    **/
         /**
         NIM : 1301154160
         **/
@@ -467,6 +534,8 @@ void reporting(ListP L)
     infotypec kendaraanterlama;
     double terlama = 0;
     double rata2lama = 0;
+    int maxken = 0;
+    string maxkenz;
 
     addressP PParent = L.first;
     cout << "Reporting Parkir :" << endl << endl;
@@ -494,6 +563,10 @@ void reporting(ListP L)
         }
         totalkendaraan += jumlah;
         cout << "Total Kendaraan di " << x.nama << " adalah " << jumlah << " buah kendaraan" << endl;
+        if (jumlah > maxken) {
+            maxken = jumlah;
+            maxkenz = x.nama;
+        }
 
         cout << endl;
         nextparent(PParent);
@@ -503,10 +576,11 @@ void reporting(ListP L)
         struct tm * ubahkewaktu = localtime( & kendaraanterlama.waktumasuk );
         rata2lama = rata2lama/totalkendaraan;
         cout << "Kendaraan yang parkir terlama adalah " << kendaraanterlama.jenis
-             << "\n dengan nomor polisi " << kendaraanterlama.nopol
-             << "\n dengan lama parkir " << terlama << " jam"
-             << "\n dari jam " << ubahkewaktu->tm_hour << ":" << ubahkewaktu->tm_min << ":" << ubahkewaktu->tm_sec << endl;
-        cout << "Total kendaraan yang parkir di semua lantai adalah " << totalkendaraan << " buah kendaraan" << endl;
+             << "\nNomor Polisi : " << kendaraanterlama.nopol
+             << "\nLama Parkir : " << terlama << " jam"
+             << "\nJam Masuk : " << ubahkewaktu->tm_hour << ":" << ubahkewaktu->tm_min << ":" << ubahkewaktu->tm_sec << endl << endl;
+        cout << "Total kendaraan yang parkir di semua lantai adalah " << totalkendaraan << " buah kendaraan" << endl << endl;
+        cout << "Lantai dengan kendaraan terbanyak adalah "<< maxkenz << " dengan "<< maxken << " buah kendaraan" << endl << endl;
         cout << "Rata-rata lamanya parkir adalah " << rata2lama << " Jam" << endl << endl << endl << endl;
     }
     else
@@ -559,11 +633,13 @@ void ubahdata(ListP &L)
         cout << "Pilihan salah" << endl;
     }
 }
-infotypeP DMLParent(int ID, string nama, string alamat){
+infotypeP DMLParent(int ID, string nama, string alamat,string petugas, string kelas){
     infotypeP x;
     x.ID = ID;
     x.nama = nama;
     x.alamat = alamat;
+    x.petugas = petugas;
+    x.kelas = kelas;
     return x;
 }
 void DMLChild(ListP &L,int ID, int IDKendaraan, string nopol, string jenis, string nama, string pemilik){
@@ -581,38 +657,3 @@ void DMLChild(ListP &L,int ID, int IDKendaraan, string nopol, string jenis, stri
     insertAscendingID(P->child,alokasi(y));
     }
 }
-/**fungsi createDML(int IDparent, string nopol, string jenis, string jammasuk)
-
-
-    DIBAWAH INI BANTUAN YAH SAY
-    infotypeP ortu;
-    infotypec bocah;
-
-    printParent(L);
-    cout << "Masukkan ID Lantai yang mau di parkirin : ";
-    cin >> ortu.ID;
-    bocah.waktumasuk = time(0);
-    addressP P = findElm(L,ortu);
-    if (P==NULL)
-    {
-        cout << "Lantai parkir tidak ditemukan" << endl;
-    }
-    else
-    {
-        bool status = false;
-        while(!status){
-        cout << "Lantai Parkir ditemukan" << endl;
-        cout << "Input ID :";
-        cin >> bocah.ID;
-        cout << "Nomor Polisi :";
-        getline(cin,bocah.nopol);
-        getline(cin,bocah.nopol);
-        while(bocah.jenis != "Mobil" && bocah.jenis != "Motor")
-        {
-            cout << "Jenis Kendaraan (Mobil / Motor) : ";
-            cin >> bocah.jenis;
-        }
-        status = insertAscendingID(P->child,alokasi(bocah));
-        }
-    }
-    **/
