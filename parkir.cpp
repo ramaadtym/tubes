@@ -67,7 +67,16 @@ void BayarParkir(addressc &P,Harga hargaparkir,addressP &Z)
         cin >> bayar;
         cout << "Uang yang dibayarkan : " << bayar << endl;
         cout << "Kembalian : " << harga-bayar << endl;
-        deletebySearch(Z->child,x);
+        /** \brief
+         *
+         * \param
+         * \param
+         * \return
+         *
+         */
+        addressc P;
+        deletebySearch(child(Z),x,P);
+        delete P;
 
     }
 }

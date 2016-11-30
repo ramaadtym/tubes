@@ -45,11 +45,13 @@ int main()
     menu(L);
     return 0;
 }
+
 void menu(ListP &L)
 {
     addressc P;
     addressP Q;
     string nopols;
+    string plat;
     int pilihan = NULL;
     do
     {
@@ -81,6 +83,8 @@ void menu(ListP &L)
             BayarParkir(P,hargaparkir,Q);
             break;
         case 4:
+            P = CariKendaraan(L,Q);
+            detilKendaraan(info(P));
             break;
         case 5:
             printAll(L);
@@ -93,7 +97,8 @@ void menu(ListP &L)
             break;
         case 8:
             SortingParent(L);
-            printParent(L);
+            cout<<"Tersorting!"<<endl;
+//            printParent(L);
             break;
         case 9:
             BiayaParkir(hargaparkir);
@@ -117,15 +122,15 @@ void isiDataAwal(ListP &L)
 
     x = DMLParent(3,"Lantai Satu","Sukapura, Telkom University");
     insertAscendingID(L,alokasi(x));
-    DMLChild(L,3,10,"B 1 RI","Mobil");
-    DMLChild(L,3,25,"D 535 D","Motor");
+    DMLChild(L,3,10,"B 1 RI","Mobil","Nissan Juke","Faishal");
+    DMLChild(L,3,25,"D 535 D","Motor","Blade","Rama");
 
     x = DMLParent(10,"Lantai Dua","Sukapura, Telkom University");
     insertAscendingID(L,alokasi(x));
-    DMLChild(L,6,10,"D 1359 Z","Motor");
-    DMLChild(L,6,25,"D 2456 AA","Motor");
-    DMLChild(L,6,1,"FF 2556 5","Mobil");
-    DMLChild(L,6,66,"N 1366 Z","Motor");
+    DMLChild(L,6,10,"D 1359 Z","Motor","Supra X Helm In","Dani");
+    DMLChild(L,6,25,"D 2456 AA","Motor","Vario","Vatana");
+    DMLChild(L,6,1,"FF 2556 5","Mobil","MIO GT","Sarah");
+    DMLChild(L,6,66,"N 1366 Z","Motor","Beat","Yusuf");
 
 
 }

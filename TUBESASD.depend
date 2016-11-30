@@ -188,3 +188,40 @@
 1480076379 source:c:\users\ipat1\documents\codingan\asdganteng\parkir.cpp
 	"parkir.h"
 
+1480341273 source:c:\users\ramaadtym\desktop\task\01 - strukdat\tubes\child.cpp
+	"child.h"
+	"parkir.h"
+
+1480316768 c:\users\ramaadtym\desktop\task\01 - strukdat\tubes\child.h
+	<iostream>
+	"stdafx.h"
+
+1480080679 c:\users\ramaadtym\desktop\task\01 - strukdat\tubes\stdafx.h
+	<stdlib.h>
+	<iostream>
+	<time.h>
+	<windows.h>
+	<string>
+
+1480080679 c:\users\ramaadtym\desktop\task\01 - strukdat\tubes\parkir.h
+	"stdafx.h"
+	"parent.h"
+
+1480316096 c:\users\ramaadtym\desktop\task\01 - strukdat\tubes\parent.h
+	"child.h"
+	"stdafx.h"
+
+1480340173 source:c:\users\ramaadtym\desktop\task\01 - strukdat\tubes\main.cpp
+	<iostream>
+	<stdlib.h>
+	"parent.h"
+	"child.h"
+	"parkir.h"
+
+1480341029 source:c:\users\ramaadtym\desktop\task\01 - strukdat\tubes\parent.cpp
+	"parent.h"
+	"stdafx.h"
+
+1480316969 source:c:\users\ramaadtym\desktop\task\01 - strukdat\tubes\parkir.cpp
+	"parkir.h"
+

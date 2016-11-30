@@ -55,5 +55,5 @@ addressc cariNopol(ListP L,string nopol);
 void reporting(ListP L);
 void ubahdata(ListP &L);
 infotypeP DMLParent(int ID, string nama, string alamat);
-void DMLChild(ListP &L,int ID, int IDKendaraan, string nopol, string jenis);
+void DMLChild(ListP &L,int ID, int IDKendaraan, string nopol, string jenis, string nama, string pemilik);
 #endif // PARENT_H_INCLUDED

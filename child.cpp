@@ -23,6 +23,7 @@ addressc alokasi(infotypec x)
     info(C).jenis = x.jenis;
     info(C).nopol = x.nopol;
     info(C).waktumasuk = time(0);
+    info(C).pemilik = x.pemilik;
     next(C) = Nil;
     return C;
 }
@@ -136,14 +137,14 @@ void deleteLast(Listc &L, addressc &P)
         }
     }
 }
-void deletebySearch(Listc &L,infotypec x)
+void deletebySearch(Listc &L,infotypec x, addressc &P)
 {
     /**
         NIM : 1301150034
     **/
 
 //PUT YOUR CODE HERE//
-    addressc Prec,P;
+    addressc Prec;
     Prec = first(L);
     P = findElm(L,x);
     if (P != Nil)
@@ -161,6 +162,10 @@ void deletebySearch(Listc &L,infotypec x)
             if (next(Prec) == NULL)
             {
                 deleteLast(L,Prec);
+            }
+            else
+            {
+                next(Prec) = next(P);
             }
         }
     }
@@ -285,4 +290,70 @@ void printChild(Listc L,Harga hargaparkir)
             C = next(C);
         }
     }
+}
+void SortingDesc(Listc &L)
+{
+    /**
+    NIM : 1301150034
+    **/
+    addressc pertama = first(L);
+    infotypec besar;
+    while(next(pertama) != Nil && pertama != Nil) //bukan Last dan kosong
+    {
+        addressc Q = pertama;
+//        if (Q != NULL){
+//
+//        besar.ID = info(Q).ID;
+//        besar.nopol = info(Q).nopol;
+//        besar.nama = info(Q).nama;
+//
+//
+//        }
+        while(Q != NULL)
+        {
+            if (info(Q).nopol >= besar.nopol)
+            {
+                besar.nopol = info(Q).nopol;
+                besar.ID = info(Q).ID;
+                besar.nama = info(Q).nama;
+            }
+            Q = next(Q);
+        }
+        //Cari elemen buat di sorting
+        addressc P,Z;
+        infotypec x = besar;
+        P = findElm(L,x);
+
+        //harus nya perintah ini di pake buat ID Lantai yang lain juga
+        if(pertama == first(L)){
+        Z = Nil;
+        }
+        else{
+            Z = first(L);
+            while(next(Z) != pertama){
+                Z = next(Z);
+            }
+        }
+        if(P != first(L)){
+            deletebySearch(L,x,P);
+            if(pertama == first(L)){
+                insertFirst(L,P);
+                pertama = next(P);
+            }
+            else{
+                insertAfter(L,Z,P);
+                pertama = next(P);
+            }
+        }
+        else{
+            pertama = next(pertama);
+        }
+    }
+}
+void detilKendaraan(infotypec x){
+    cout<<"DETIL KENDARAAN "<<x.nopol<<endl;
+    cout<<"ID Parkir: "<<x.ID<<endl;
+    cout<<"Jenis Kendaraan: "<<x.jenis<<endl;
+    cout<<"Merk: "<<x.nama<<endl;
+    cout<<"Pemilik: "<<x.pemilik<<endl;
 }

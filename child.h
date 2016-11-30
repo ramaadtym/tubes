@@ -14,7 +14,7 @@
 using namespace std;
 struct infotypec{
     int ID;
-    string nama,jenis,nopol;
+    string nama,jenis,nopol,pemilik;
     time_t waktumasuk;
 };
 typedef struct Child *addressc;
@@ -40,9 +40,11 @@ bool insertAscendingID(Listc &L, addressc P);
 
 void deleteFirst(Listc &L, addressc &P);
 void deleteLast(Listc &L, addressc &P);
-void deletebySearch(Listc &L, infotypec x);
+void deletebySearch(Listc &L, infotypec x, addressc &);
 
 addressc findElm(Listc L, infotypec x);
 void printChild(Listc L);
 addressc findNopol(Listc L, string nopol);
+void detilKendaraan(infotypec x);
+void SortingDesc(Listc &L);
 #endif // CHILD_H_INCLUDED

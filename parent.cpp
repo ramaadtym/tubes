@@ -305,7 +305,6 @@ void printAll(ListP L)
         cout << endl << endl << endl;
             P = next(P);
         }
-
     }
 }
 void SortingParent(ListP &L)
@@ -356,10 +355,15 @@ void SortingParent(ListP &L)
         {
             first = first->next;
         }
+
         minimum.ID = NULL;
         minimum.nama = "";
     }
-
+    addressP P = first;
+    while(P != NULL){
+         SortingDesc(child(P));
+         nextparent(P);
+    }
 }
 
 void insertChild(ListP L)
@@ -433,6 +437,7 @@ addressc cariNopol(ListP L,string nopol, addressP &Parent)
             if (Q != NULL){
                 Parent=P;
                 found = true;
+                return Q;
             }
         }
         P = P->next;
@@ -561,7 +566,7 @@ infotypeP DMLParent(int ID, string nama, string alamat){
     x.alamat = alamat;
     return x;
 }
-void DMLChild(ListP &L,int ID, int IDKendaraan, string nopol, string jenis){
+void DMLChild(ListP &L,int ID, int IDKendaraan, string nopol, string jenis, string nama, string pemilik){
     infotypeP x;
     x.ID = ID;
     addressP P = findElm(L,x);
@@ -571,10 +576,11 @@ void DMLChild(ListP &L,int ID, int IDKendaraan, string nopol, string jenis){
     y.jenis = jenis;
     y.nopol = nopol;
     y.waktumasuk = time(0);
+    y.nama = nama;
+    y.pemilik = pemilik;
     insertAscendingID(P->child,alokasi(y));
     }
 }
-
 /**fungsi createDML(int IDparent, string nopol, string jenis, string jammasuk)
 
 
