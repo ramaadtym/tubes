@@ -327,17 +327,11 @@ void SortingDesc(Listc &L)
     **/
     addressc pertama = first(L);
     infotypec besar;
+    if(pertama != Nil)
     while(next(pertama) != Nil && pertama != Nil) //bukan Last dan kosong
     {
         addressc Q = pertama;
-//        if (Q != NULL){
-//
-//        besar.ID = info(Q).ID;
-//        besar.nopol = info(Q).nopol;
-//        besar.nama = info(Q).nama;
-//
-//
-//        }
+        besar.nopol = info(Q).nopol;
         while(Q != NULL)
         {
             if (info(Q).nopol >= besar.nopol)
@@ -390,4 +384,6 @@ void detilKendaraan(infotypec x)
     cout<<"Jenis Kendaraan: "<<x.jenis<<endl;
     cout<<"Merk: "<<x.nama<<endl;
     cout<<"Pemilik: "<<x.pemilik<<endl;
+    struct tm * now = localtime( & x.waktumasuk );
+    cout << "Jam masuk : " << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << endl;
 }
