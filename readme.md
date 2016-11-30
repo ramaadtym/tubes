@@ -44,3 +44,5 @@ Tambahan Kompleksitas untuk Kelompok 2 orang
 2. jadwal responsi diberikan oleh asprak, mahasiswa dipersilahkan mengisi sendiri 
 3. responsi bisa diadakan oleh asprak untuk lebih dari 1 kelompok dalam satu waktu 
 4. responsi MAKSIMAL hingga 30 November 2016
+
+1301150034 - 1301154160
