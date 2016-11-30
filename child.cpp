@@ -64,7 +64,8 @@ void insertAfter(Listc &L,addressc Prec, addressc P)
 {
     /**
         NIM :1301150034
-        
+        IS: list mungkin kosong
+        FS: menambahkan elemen baru setelah elemen p
     **/
 
 //PUT YOUR CODE HERE//
@@ -86,6 +87,8 @@ void insertLast(Listc &L, addressc P)
 {
     /**
         NIM :1301150034
+        IS : List L mungkin kosong
+        FS : elemen yang ditunjuk P menjadi elemen terakhir pada List L
     **/
 
 //PUT YOUR CODE HERE//
