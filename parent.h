@@ -57,5 +57,5 @@ addressc CariKendaraan(ListP L,addressP &P);
 void reporting(ListP L);
 void ubahdata(ListP &L);
 infotypeP DMLParent(int ID, string nama, string alamat,string petugas, string kelas);
-void DMLChild(ListP &L,int ID, int IDKendaraan, string nopol, string jenis, string nama, string pemilik);
+void DMLChild(ListP &L,int ID, int IDKendaraan, string nopol, string jenis, string merk, string pemilik);
 #endif // PARENT_H_INCLUDED

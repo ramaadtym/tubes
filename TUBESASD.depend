@@ -225,3 +225,39 @@
 1480316969 source:c:\users\ramaadtym\desktop\task\01 - strukdat\tubes\parkir.cpp
 	"parkir.h"
 
+1480658788 source:d:\rama\tubesasd\child.cpp
+	"child.h"
+	"parkir.h"
+
+1480658574 d:\rama\tubesasd\child.h
+	<iostream>
+	"stdafx.h"
+
+1480656635 d:\rama\tubesasd\stdafx.h
+	<stdlib.h>
+	<iostream>
+	<time.h>
+	<windows.h>
+	<string>
+
+1480656635 d:\rama\tubesasd\parkir.h
+	"stdafx.h"
+	"parent.h"
+
+1480658650 d:\rama\tubesasd\parent.h
+	"child.h"
+	"stdafx.h"
+
+1480657082 source:d:\rama\tubesasd\main.cpp
+	<iostream>
+	<stdlib.h>
+	"parent.h"
+	"parkir.h"
+
+1480659266 source:d:\rama\tubesasd\parent.cpp
+	"parent.h"
+	"stdafx.h"
+
+1480656635 source:d:\rama\tubesasd\parkir.cpp
+	"parkir.h"
+

@@ -14,7 +14,7 @@
 using namespace std;
 struct infotypec{
     int ID;
-    string nama,jenis,nopol,pemilik;
+    string merk,jenis,nopol,pemilik;
     time_t waktumasuk;
 };
 typedef struct Child *addressc;

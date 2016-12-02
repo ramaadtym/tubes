@@ -599,6 +599,8 @@ void ubahdata(ListP &L)
     {
         /**
         NIM : 1301154160
+        IS  : List dalam keadaan terisi
+        FS  : Data lantai terisi oleh data lantai terbaru
         **/
         printParent(L);
         infotypeP Lantai;
@@ -624,8 +626,25 @@ void ubahdata(ListP &L)
     {
         /**
         NIM : 1301150034
+        IS  : List dalam keadaan terisi
+        FS  : Data Kendaraan terisi oleh data Kendaraan terbaru
         **/
-
+        cout<<"Data kendaraan: "<<endl;
+        infotypec Kendaraan;
+        addressP P;
+        addressc cari = CariKendaraan(L,P);
+        detilKendaraan(info(cari));
+        cout<<endl;
+        cout<<"Ubah Data Kendaraan "<<endl;
+        cout << "Masukkan Nomor Polisi: ";
+        getline(cin,Kendaraan.nopol);
+        cout << "Masukkan Merk : ";
+        getline(cin,Kendaraan.merk);
+        cout << "Masukkan Jenis Kendaraan : ";
+        getline(cin,Kendaraan.jenis);
+        cout << "Masukkan Pemilik Kendaraan : ";
+        getline(cin,Kendaraan.pemilik);
+        info(cari) = Kendaraan;
 
     }
     else
@@ -634,6 +653,9 @@ void ubahdata(ListP &L)
     }
 }
 infotypeP DMLParent(int ID, string nama, string alamat,string petugas, string kelas){
+    /**
+        Ini adalah fungsi settingan, supaya ketika program dijalankan, list dalam keadaan terisi.
+    **/
     infotypeP x;
     x.ID = ID;
     x.nama = nama;
@@ -642,7 +664,10 @@ infotypeP DMLParent(int ID, string nama, string alamat,string petugas, string ke
     x.kelas = kelas;
     return x;
 }
-void DMLChild(ListP &L,int ID, int IDKendaraan, string nopol, string jenis, string nama, string pemilik){
+void DMLChild(ListP &L,int ID, int IDKendaraan, string nopol, string jenis, string merk, string pemilik){
+     /**
+        Ini adalah fungsi settingan, supaya ketika program dijalankan, list dalam keadaan terisi.
+    **/
     infotypeP x;
     x.ID = ID;
     addressP P = findElm(L,x);
@@ -652,7 +677,7 @@ void DMLChild(ListP &L,int ID, int IDKendaraan, string nopol, string jenis, stri
     y.jenis = jenis;
     y.nopol = nopol;
     y.waktumasuk = time(0);
-    y.nama = nama;
+    y.merk = merk;
     y.pemilik = pemilik;
     insertAscendingID(P->child,alokasi(y));
     }

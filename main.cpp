@@ -83,7 +83,7 @@ void menu(ListP &L)
             BayarParkir(P,hargaparkir,Q);
             break;
         case 4:
-                P = CariKendaraan(L,Q);
+            P = CariKendaraan(L,Q);
             detilKendaraan(info(P));
             break;
         case 5:

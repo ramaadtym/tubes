@@ -21,7 +21,7 @@ addressc alokasi(infotypec x)
     addressc C;
     C = new Child;
     info(C).ID = x.ID;
-    info(C).nama = x.nama;
+    info(C).merk = x.merk;
     info(C).jenis = x.jenis;
     info(C).nopol = x.nopol;
     info(C).waktumasuk = time(0);
@@ -33,7 +33,7 @@ void dealokasi(addressc &P)
 {
     /**
         NIM :1301150034
-        FS: menghapus elemen yang ditunjuk oleh P   
+        FS: menghapus elemen yang ditunjuk oleh P
     **/
 
 //PUT YOUR CODE HERE//
@@ -46,7 +46,7 @@ void insertFirst(Listc &L, addressc P)
     /**
         NIM :1301150034
         IS : List L mungkin kosong
-        FS : elemen yang ditunjuk P menjadi elemen pertama pada List L    
+        FS : elemen yang ditunjuk P menjadi elemen pertama pada List L
     **/
 
 //PUT YOUR CODE HERE//
@@ -308,7 +308,7 @@ void printChild(Listc L,Harga hargaparkir)
         {
             infotypec c = info(C);
             cout << "ID : " << c.ID << endl;
-            cout << "Nama : " << c.nama << endl;
+            cout << "Nama : " << c.merk << endl;
             cout << "Jenis Kendaraan : " << c.jenis << endl;
             struct tm * now = localtime( & c.waktumasuk );
             cout << "Jam masuk : " << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << endl;
@@ -327,7 +327,7 @@ void SortingDesc(Listc &L)
     **/
     addressc pertama = first(L);
     infotypec besar;
-    if(pertama != Nil)
+    if(pertama != Nil){
     while(next(pertama) != Nil && pertama != Nil) //bukan Last dan kosong
     {
         addressc Q = pertama;
@@ -338,7 +338,7 @@ void SortingDesc(Listc &L)
             {
                 besar.nopol = info(Q).nopol;
                 besar.ID = info(Q).ID;
-                besar.nama = info(Q).nama;
+                besar.merk = info(Q).merk;
             }
             Q = next(Q);
         }
@@ -347,7 +347,7 @@ void SortingDesc(Listc &L)
         infotypec x = besar;
         P = findElm(L,x);
 
- 
+
         if(pertama == first(L)){
         Z = Nil;
         }
@@ -372,6 +372,7 @@ void SortingDesc(Listc &L)
             pertama = next(pertama);
         }
     }
+    }
 }
 void detilKendaraan(infotypec x)
 {
@@ -382,7 +383,7 @@ void detilKendaraan(infotypec x)
     cout<<"DETIL KENDARAAN "<<x.nopol<<endl;
     cout<<"ID Parkir: "<<x.ID<<endl;
     cout<<"Jenis Kendaraan: "<<x.jenis<<endl;
-    cout<<"Merk: "<<x.nama<<endl;
+    cout<<"Merk: "<<x.merk<<endl;
     cout<<"Pemilik: "<<x.pemilik<<endl;
     struct tm * now = localtime( & x.waktumasuk );
     cout << "Jam masuk : " << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << endl;
