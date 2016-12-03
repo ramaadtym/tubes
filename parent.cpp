@@ -394,7 +394,7 @@ void SortingAll(ListP &L)
         minimum.nama = Q->info.nama;
         while(Q != NULL) //cari value minimum
         {
-            if (Q->info.nama <= minimum.nama)
+            if (Q->info.ID >= minimum.ID)
             {
                 minimum.ID = Q->info.ID;
                 minimum.nama = Q->info.nama;
@@ -460,6 +460,7 @@ void insertChild(ListP L)
         bool status = false;
         while(!status){
         cout << "Lantai Parkir ditemukan" << endl;
+        printChild(child(P));
         cout << "Input ID :";
         cin >> bocah.ID;
         cout << "Nomor Polisi :";

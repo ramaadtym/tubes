@@ -63,8 +63,8 @@ void menu(ListP &L)
         cout << "4. Cari Kendaraan" << endl;//search and view
         cout << "5. Menampilkan Semua Kendaraan Parkir" << endl;//printAll
         cout << "6. Reporting" << endl;//reporting dibagi 2
-        cout << "7. Ubah data kendaraan atau lantai" << endl;
-        cout << "8. Urutkan bedasarkan Nama Lantai" << endl;
+        cout << "7. Edit Data" << endl;
+        cout << "8. Sorting data" << endl;
         cout << "9. Setting Biaya Parkir" << endl;
         cout << "0. Keluar" << endl;
         cout << "Input : ";

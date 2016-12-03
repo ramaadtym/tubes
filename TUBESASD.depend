@@ -261,3 +261,39 @@
 1480656635 source:d:\rama\tubesasd\parkir.cpp
 	"parkir.h"
 
+1480749813 source:d:\download\dhia\tubes-master\child.cpp
+	"child.h"
+	"parkir.h"
+
+1480605602 d:\download\dhia\tubes-master\child.h
+	<iostream>
+	"stdafx.h"
+
+1480605602 d:\download\dhia\tubes-master\stdafx.h
+	<stdlib.h>
+	<iostream>
+	<time.h>
+	<windows.h>
+	<string>
+
+1480605602 d:\download\dhia\tubes-master\parkir.h
+	"stdafx.h"
+	"parent.h"
+
+1480605602 d:\download\dhia\tubes-master\parent.h
+	"child.h"
+	"stdafx.h"
+
+1480749523 source:d:\download\dhia\tubes-master\main.cpp
+	<iostream>
+	<stdlib.h>
+	"parent.h"
+	"parkir.h"
+
+1480749751 source:d:\download\dhia\tubes-master\parent.cpp
+	"parent.h"
+	"stdafx.h"
+
+1480605602 source:d:\download\dhia\tubes-master\parkir.cpp
+	"parkir.h"
+

@@ -287,7 +287,7 @@ addressc findNopol(Listc L, string nopol)
     }
     return C;
 }
-void printChild(Listc L,Harga hargaparkir)
+void printChild(Listc L)
 {
     /**
         NIM :1301150034
@@ -307,16 +307,11 @@ void printChild(Listc L,Harga hargaparkir)
         while(C!=Nil)
         {
             infotypec c = info(C);
-            cout << "ID : " << c.ID << endl;
-            cout << "Nama : " << c.merk << endl;
-            cout << "Jenis Kendaraan : " << c.jenis << endl;
-            struct tm * now = localtime( & c.waktumasuk );
-            cout << "Jam masuk : " << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << endl;
-            double selisihjam = (difftime(time(0),mktime(now))/3600);
-            cout << "Biaya parkir = " << Hitungbiayaparkir(selisihjam,c.jenis,hargaparkir) << endl;
+            detilKendaraan(c);
             C = next(C);
         }
     }
+    cout << endl;
 }
 void SortingDesc(Listc &L)
 {
@@ -334,7 +329,7 @@ void SortingDesc(Listc &L)
         besar.nopol = info(Q).nopol;
         while(Q != NULL)
         {
-            if (info(Q).nopol >= besar.nopol)
+            if (info(Q).nopol <= besar.nopol)
             {
                 besar.nopol = info(Q).nopol;
                 besar.ID = info(Q).ID;
@@ -380,6 +375,7 @@ void detilKendaraan(infotypec x)
         NIM: 1301150034
         FS : menampilkan detil kendaraan sesuai yang di inputkan user
     **/
+
     cout<<"DETIL KENDARAAN "<<x.nopol<<endl;
     cout<<"ID Parkir: "<<x.ID<<endl;
     cout<<"Jenis Kendaraan: "<<x.jenis<<endl;
@@ -387,4 +383,5 @@ void detilKendaraan(infotypec x)
     cout<<"Pemilik: "<<x.pemilik<<endl;
     struct tm * now = localtime( & x.waktumasuk );
     cout << "Jam masuk : " << now->tm_hour << ":" << now->tm_min << ":" << now->tm_sec << endl;
+    cout << endl;
 }
