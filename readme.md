@@ -1,12 +1,10 @@
-# tubes
-TUBES STRUKTUR DATA 2016 
-
 SPESIFIKASI PROGRAM 
 A. Deskripsi Program
 	Program ini merupakan program pengelolaan lahan parkir yang terdiri dari pengelolaan lantai parkir dan kendaraan yang parkir di dalamnya atau bisa 
 	disebut juga relasi N-M pada pemodelan basis data.
 
 B. Fungsionalitas
+
 1. Memasukkan Data Lantai Parkir
 	Pengguna dapat menambahkan informasi lantai parkir yang terdiri dari ID, Nama Lantai, Alamat Lahan, Petugas Parkir, dan Kelas parkir.
 
@@ -39,4 +37,4 @@ B. Fungsionalitas
 
 10.Keluar
 	Program akan menghasilkan tampilan terimakasih dan nama pengembang lalu menutup aplikasi. 
-
+ 
